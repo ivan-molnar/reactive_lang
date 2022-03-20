@@ -90,5 +90,5 @@ func LookupIdent(ident string) TokenType {
 // & ^ |
 // && ^^ ||
 // [] (<- when arrays will be a thing)
-// str char array float
+// str char array float bool
 // Math
