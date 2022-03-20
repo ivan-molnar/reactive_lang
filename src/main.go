@@ -12,8 +12,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Hello %s! This is the Monkey programming language!\n",
-		user.Username)
-	fmt.Printf("Feel free to type in commands\n")
+	fmt.Printf("Hello %s! This is the new reactive programming language!\n", user.Username)
+	fmt.Printf("for now this prompt should print out tokens generated from your input.\nFeel free to give it a try!")
 	repl.Start(os.Stdin, os.Stdout)
 }
