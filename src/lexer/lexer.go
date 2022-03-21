@@ -26,37 +26,21 @@ func (l *Lexer) NextToken() token.Token {
 	case '\n':
 		tok = newToken(token.NL, l.ch)
 	case '=':
-		if l.peekChar() == '=' {
-			tok = l.getDoubleDigitToken(token.EQ)
-		} else {
-			tok = newToken(token.ASSIGN, l.ch)
-		}
+		tok = l.getDoubleDigitToken('=', token.ASSIGN, token.EQ)
 	case '+':
-		tok = newToken(token.PLUS, l.ch)
+		tok = l.getDoubleDigitToken('=', token.PLUS, token.PLUS_AS)
 	case '-':
-		tok = newToken(token.MINUS, l.ch)
+		tok = l.getDoubleDigitToken('=', token.MINUS, token.MIN_AS)
 	case '!':
-		if l.peekChar() == '=' {
-			tok = l.getDoubleDigitToken(token.NOT_EQ)
-		} else {
-			tok = newToken(token.BANG, l.ch)
-		}
+		tok = l.getDoubleDigitToken('=', token.BANG, token.NOT_EQ)
 	case '/':
-		tok = newToken(token.SLASH, l.ch)
+		tok = l.getDoubleDigitToken('=', token.SLASH, token.DIV_AS)
 	case '*':
-		tok = newToken(token.ASTERISK, l.ch)
+		tok = l.getDoubleDigitToken('=', token.ASTERISK, token.MULT_AS)
 	case '<':
-		if l.peekChar() == '=' {
-			tok = l.getDoubleDigitToken(token.LT_EQ)
-		} else {
-			tok = newToken(token.LT, l.ch)
-		}
+		tok = l.getDoubleDigitToken('=', token.LT, token.LT_EQ)
 	case '>':
-		if l.peekChar() == '=' {
-			tok = l.getDoubleDigitToken(token.GT_EQ)
-		} else {
-			tok = newToken(token.GT, l.ch)
-		}
+		tok = l.getDoubleDigitToken('=', token.GT, token.GT_EQ)
 	case ';':
 		tok = newToken(token.SEMICOLON, l.ch)
 	case ',':
@@ -118,11 +102,15 @@ func (l *Lexer) peekChar() byte {
 	}
 }
 
-func (l *Lexer) getDoubleDigitToken(tokenType token.TokenType) token.Token {
-	ch := l.ch
-	l.readChar()
-	literal := string(ch) + string(l.ch)
-	return token.Token{Type: tokenType, Literal: literal}
+func (l *Lexer) getDoubleDigitToken(secondChar rune, fistType token.TokenType, secondType token.TokenType) token.Token {
+	if l.peekChar() == '=' {
+		ch := l.ch
+		l.readChar()
+		literal := string(ch) + string(l.ch)
+		return token.Token{Type: secondType, Literal: literal}
+	} else {
+		return newToken(fistType, l.ch)
+	}
 }
 
 func (l *Lexer) readIdentifier() string {
