@@ -22,6 +22,11 @@ const (
 	LT = "<"
 	GT = ">"
 
+	PLUS_AS = "+="
+	MIN_AS  = "-="
+	MULT_AS = "*="
+	DIV_AS  = "/="
+
 	EQ     = "=="
 	NOT_EQ = "!="
 	LT_EQ  = "<="
@@ -31,10 +36,12 @@ const (
 	COMMA     = ","
 	SEMICOLON = ";"
 
-	LPAREN = "("
-	RPAREN = ")"
-	LBRACE = "{"
-	RBRACE = "}"
+	LPAREN  = "("
+	RPAREN  = ")"
+	LBRACE  = "{"
+	RBRACE  = "}"
+	LSQUARE = "["
+	RSQUARE = "]"
 
 	// Keywords
 	FUNCTION = "FUNCTION"
@@ -84,11 +91,10 @@ func LookupIdent(ident string) TokenType {
 
 /* TO BE ADDED LATER: */
 
-// += -= *= /=
-// static (<- a classical, non-reactive variable/object)
-// class object
-// & ^ |
-// && ^^ ||
-// [] (<- when arrays will be a thing)
-// str char array float
-// Math
+// += -= *= /=					(<- just shortcuts)
+// static 						(<- a classical, non-reactive variable/object, might need a better keyword)
+// class						(<- this one will be tricky to implement)
+// & ^ |						(<- binary operators)
+// && ^^ ||						(<- logical operators)
+// str char array float object 	(<- to define / change types)
+// "" '' ``						(<- books says how to do these towards the very end)
