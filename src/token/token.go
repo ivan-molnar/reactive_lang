@@ -19,14 +19,17 @@ const (
 	ASTERISK = "*"
 	SLASH    = "/"
 
-	LT = "<"
-	GT = ">"
-
+	// Double perators
 	PLUS_AS = "+="
 	MIN_AS  = "-="
 	MULT_AS = "*="
 	DIV_AS  = "/="
 
+	// Comparators
+	LT = "<"
+	GT = ">"
+
+	// Double comparators
 	EQ     = "=="
 	NOT_EQ = "!="
 	LT_EQ  = "<="
@@ -35,6 +38,7 @@ const (
 	// Delimiters
 	COMMA     = ","
 	SEMICOLON = ";"
+	DOT       = "."
 
 	LPAREN  = "("
 	RPAREN  = ")"
@@ -58,6 +62,7 @@ const (
 	BREAK    = "BREAK"
 	CONTINUE = "CONTINUE"
 	RETURN   = "RETURN"
+	PRINT    = "PRINT"
 )
 
 type Token struct {
@@ -80,6 +85,7 @@ var keywords = map[string]TokenType{
 	"break":    BREAK,
 	"continue": CONTINUE,
 	"return":   RETURN,
+	"print":    PRINT,
 }
 
 func LookupIdent(ident string) TokenType {
@@ -91,7 +97,6 @@ func LookupIdent(ident string) TokenType {
 
 /* TO BE ADDED LATER: */
 
-// += -= *= /=					(<- just shortcuts)
 // static 						(<- a classical, non-reactive variable/object, might need a better keyword)
 // class						(<- this one will be tricky to implement)
 // & ^ |						(<- binary operators)
