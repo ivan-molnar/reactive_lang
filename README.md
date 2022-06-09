@@ -7,13 +7,13 @@ This means, changes to varibles also affect every variable that has been modifie
 
 # Planned major features
 
-[x] Creation of a Token list
-[x] Creation of a basic Lexer
-[ ] Creation of a Parser
-[ ] Creation of an Interpreter
-[ ] Extending the basic functionalities of the language
-[ ] Web interfacing
-[ ] Inbuilt-Database
-[ ] SQL
-[ ] Inbuilt Graph Library
-[ ] Compiler
+- [x] Creation of a Token list
+- [x] Creation of a basic Lexer
+- [ ] Creation of a Parser
+- [ ] Creation of an Interpreter
+- [ ] Extending the basic functionalities of the language
+- [ ] Web interfacing
+- [ ] Inbuilt-Database
+- [ ] SQL
+- [ ] Inbuilt Graph Library
+- [ ] Compiler
