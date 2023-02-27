@@ -17,3 +17,11 @@ This means, changes to varibles also affect every variable that has been modifie
 - [ ] SQL
 - [ ] Inbuilt Graph Library
 - [ ] Compiler
+
+# What is done?
+
+This verson has a functional lexer. This means it can read and break up a text file into a list of tokens which will allow for ReLa to reconfigure user input into a computer-readable format.
+
+There is also a repl that allows for input to be read line-by-line.
+
+Tokens are defined (and can be modified) in ./token/token.go
